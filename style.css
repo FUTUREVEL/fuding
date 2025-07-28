@@ -38,7 +38,7 @@ body {
 .toss-title::before {
   content: '\1F4CD'; /* 📍 */
   font-size: 1.2rem;
-  color: #3182f6;
+  color: #FFB000;
   display: none;
 }
 .toss-header .toss-title {
@@ -66,7 +66,7 @@ body {
 .toss-card {
   background: #fff;
   border-radius: 22px;
-  box-shadow: 0 4px 24px rgba(49,130,246,0.06), 0 1.5px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 24px rgba(255,176,0,0.06), 0 1.5px 4px rgba(0,0,0,0.03);
   padding: 32px 24px 26px 24px;
   margin: 22px auto 0 auto;
   max-width: 420px;
@@ -84,7 +84,7 @@ body {
 .toss-card .section-title {
   font-size: 1.13rem;
   font-weight: 700;
-  color: #3182f6;
+  color: #FFB000;
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -93,7 +93,7 @@ body {
 .toss-card .section-title::before {
   content: '\1F4C8'; /* 📈 */
   font-size: 1.1rem;
-  color: #3182f6;
+  color: #FFB000;
 }
 .toss-card .section-title.menu::before {
   content: '\1F372'; /* 🍲 */
@@ -135,7 +135,7 @@ body {
   color: #444;
 }
 .toss-btn-main {
-  background: linear-gradient(90deg, #3182f6 60%, #63a4ff 100%);
+  background: linear-gradient(90deg, #FFB000 60%, #FFC233 100%);
   color: #fff;
   border: none;
   border-radius: 16px;
@@ -144,7 +144,7 @@ body {
   font-weight: bold;
   width: 100%;
   margin-top: 22px;
-  box-shadow: 0 2px 8px rgba(49,130,246,0.10);
+  box-shadow: 0 2px 8px rgba(255,176,0,0.10);
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
   letter-spacing: -0.5px;
@@ -154,8 +154,8 @@ body {
   gap: 8px;
 }
 .toss-btn-main:active {
-  background: linear-gradient(90deg, #2563c6 60%, #3182f6 100%);
-  box-shadow: 0 4px 16px rgba(49,130,246,0.13);
+  background: linear-gradient(90deg, #E69A00 60%, #FFB000 100%);
+  box-shadow: 0 4px 16px rgba(255,176,0,0.13);
 }
 .toss-menu-row {
   display: flex;
@@ -169,7 +169,7 @@ body {
   background: #fff;
   border: none;
   border-radius: 18px;
-  box-shadow: 0 2px 8px rgba(49,130,246,0.04);
+  box-shadow: 0 2px 8px rgba(255,176,0,0.04);
   padding: 20px 0;
   font-size: 1.08rem;
   font-weight: 500;
@@ -185,21 +185,21 @@ body {
 }
 .toss-menu-btn:active {
   background: #f1f3f5;
-  box-shadow: 0 4px 16px rgba(49,130,246,0.08);
+  box-shadow: 0 4px 16px rgba(255,176,0,0.08);
 }
 .toss-menu-btn span {
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.toss-menu-btn:nth-child(1) span::before { content: '\1F4CD'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(2) span::before { content: '\1F4E6'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(3) span::before { content: '\1F4C8'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(4) span::before { content: '\1F514'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(5) span::before { content: '\1F372'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(6) span::before { content: '\1F4B0'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(7) span::before { content: '\1F4CD'; color: #3182f6; font-size: 1.1rem; }
-.toss-menu-btn:nth-child(8) span::before { content: '\2699'; color: #3182f6; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(1) span::before { content: '\1F4CD'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(2) span::before { content: '\1F4E6'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(3) span::before { content: '\1F4C8'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(4) span::before { content: '\1F514'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(5) span::before { content: '\1F372'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(6) span::before { content: '\1F4B0'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(7) span::before { content: '\1F4CD'; color: #FFB000; font-size: 1.1rem; }
+.toss-menu-btn:nth-child(8) span::before { content: '\2699'; color: #FFB000; font-size: 1.1rem; }
 /* 지도/장소 화면도 토스 스타일로 */
 .map-header {
   display: flex;
@@ -303,15 +303,15 @@ body {
   left: 0; right: 0; bottom: 0;
   background: #fff;
   border-radius: 28px 28px 0 0;
-  box-shadow: 0 -2px 32px rgba(49,130,246,0.10);
-  padding: 32px 28px 36px 28px;
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
+  padding: 32px 28px 40px 28px;
   max-width: 480px;
   margin: 0 auto;
   z-index: 30;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1.5px solid #e5e8ec;
+  border: none;
   transform: translateY(100%);
   transition: transform 0.3s ease-out;
 }
@@ -319,32 +319,72 @@ body {
   transform: translateY(0);
 }
 .place-title {
-  font-size: 1.22rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #222;
+  font-size: 24px;
+  font-weight: 700;
+  color: #191f28;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 .place-info {
-  color: #666;
-  font-size: 1.05rem;
-  margin-bottom: 6px;
+  font-size: 15px;
+  color: #4e5968;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 .place-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 22px;
+  gap: 12px;
+  margin-top: 24px;
+  width: 100%;
 }
 .like-btn {
-  background: none;
-  border: none;
-  font-size: 1.7rem;
-  color: #ff4d4f;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  border: 1.5px solid #e5e8ec;
+  background: #fff;
+  color: #ff6b6b;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.2s ease;
 }
 .like-btn:hover {
-  color: #e53e3e;
+  background: #fff5f5;
+  border-color: #ff6b6b;
+}
+.like-btn:active {
+  transform: scale(0.95);
+}
+.back-btn.abs {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1.5px solid #e5e8ec;
+  background: #fff;
+  color: #4e5968;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 35;
+}
+.back-btn.abs:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+.back-btn.abs:active {
+  transform: scale(0.95);
 }
 textarea, input[type="text"], input[type="tel"], input[type="number"] {
   font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
