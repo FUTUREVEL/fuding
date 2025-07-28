@@ -98,11 +98,7 @@ function initMap() {
       // 마커 클릭 이벤트
       kakao.maps.event.addListener(marker, 'click', function() {
         console.log('마커 클릭됨:', place.name);
-        selectedPlace = place;
-        console.log('selectedPlace 설정됨:', selectedPlace);
-        currentScreen = 'placeDetail';
-        console.log('화면 전환:', currentScreen);
-        render();
+        showPlaceDetail(place);
       });
       
       console.log(`마커 ${index + 1} 생성 완료:`, place.name);
@@ -252,49 +248,62 @@ function renderPlaceList() {
   });
 }
 
-function renderPlaceDetail() {
-  console.log('renderPlaceDetail 호출됨, selectedPlace:', selectedPlace);
+function showPlaceDetail(place) {
+  console.log('showPlaceDetail 호출됨, place:', place);
   
-  if (!selectedPlace) {
-    console.error('selectedPlace가 없습니다.');
-    currentScreen = 'placeList';
-    render();
+  if (!place) {
+    console.error('place가 없습니다.');
     return;
   }
   
-  const app = document.getElementById('app');
-  app.innerHTML = `
-    <div id="map" class="map-area"></div>
-    <div class="place-sheet toss-place-sheet">
-      <div class="place-title">${selectedPlace.name}</div>
-      <div class="place-info">운영시간 : ${selectedPlace.time}</div>
-      <div class="place-info">${selectedPlace.features}</div>
-      <div class="place-actions">
-        <button class="like-btn">❤</button>
-        <button class="toss-btn-main" id="reserveBtn">예약하기</button>
-      </div>
+  // 기존 시트가 있다면 제거
+  const existingSheet = document.querySelector('.place-sheet');
+  if (existingSheet) {
+    existingSheet.remove();
+  }
+  
+  // 새로운 시트 생성
+  const sheet = document.createElement('div');
+  sheet.className = 'place-sheet toss-place-sheet';
+  sheet.innerHTML = `
+    <div class="place-title">${place.name}</div>
+    <div class="place-info">운영시간 : ${place.time}</div>
+    <div class="place-info">${place.features}</div>
+    <div class="place-actions">
+      <button class="like-btn">❤</button>
+      <button class="toss-btn-main" id="reserveBtn">예약하기</button>
     </div>
-    <button class="back-btn abs" id="backMap">←</button>
+    <button class="back-btn abs" id="closeSheet">×</button>
   `;
   
-  console.log('장소 상세 화면 렌더링 완료');
+  document.body.appendChild(sheet);
+  
+  // 애니메이션으로 시트 표시
+  setTimeout(() => {
+    sheet.classList.add('show');
+  }, 10);
+  
+  console.log('장소 상세 시트 표시 완료');
   
   // 선택된 장소로 지도 이동
-  setTimeout(() => {
-    if (map) {
-      const position = new kakao.maps.LatLng(selectedPlace.lat, selectedPlace.lng);
-      map.setCenter(position);
-      map.setLevel(2);
-      console.log('지도 중심 이동 완료:', selectedPlace.name);
-    }
-  }, 500);
+  if (map) {
+    const position = new kakao.maps.LatLng(place.lat, place.lng);
+    map.setCenter(position);
+    map.setLevel(2);
+    console.log('지도 중심 이동 완료:', place.name);
+  }
   
-  document.getElementById('backMap').onclick = () => { 
-    console.log('뒤로가기 클릭');
-    currentScreen = 'placeList'; 
-    render(); 
+  // 이벤트 리스너
+  document.getElementById('closeSheet').onclick = () => {
+    sheet.classList.remove('show');
+    setTimeout(() => {
+      sheet.remove();
+    }, 300);
   };
-  document.getElementById('reserveBtn').onclick = () => { alert('예약하기 기능 준비중'); };
+  
+  document.getElementById('reserveBtn').onclick = () => { 
+    alert('예약하기 기능 준비중'); 
+  };
 }
 
 function renderReserve() {
@@ -424,7 +433,7 @@ function render() {
   } else if (currentScreen === 'placeList') {
     renderPlaceList();
   } else if (currentScreen === 'placeDetail') {
-    renderPlaceDetail();
+    // renderPlaceDetail(); // 이 부분은 showPlaceDetail로 대체되었으므로 제거
   } else if (currentScreen === 'reserve') {
     renderReserve();
   } else if (currentScreen === 'report') {

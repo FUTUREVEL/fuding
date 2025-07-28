@@ -312,6 +312,11 @@ body {
   flex-direction: column;
   align-items: flex-start;
   border: 1.5px solid #e5e8ec;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+.place-sheet.show, .toss-place-sheet.show {
+  transform: translateY(0);
 }
 .place-title {
   font-size: 1.22rem;
