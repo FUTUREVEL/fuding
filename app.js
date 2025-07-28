@@ -97,9 +97,11 @@ function initMap() {
       
       // 마커 클릭 이벤트
       kakao.maps.event.addListener(marker, 'click', function() {
-        console.log('마커 클릭:', place.name);
+        console.log('마커 클릭됨:', place.name);
         selectedPlace = place;
+        console.log('selectedPlace 설정됨:', selectedPlace);
         currentScreen = 'placeDetail';
+        console.log('화면 전환:', currentScreen);
         render();
       });
       
@@ -251,6 +253,15 @@ function renderPlaceList() {
 }
 
 function renderPlaceDetail() {
+  console.log('renderPlaceDetail 호출됨, selectedPlace:', selectedPlace);
+  
+  if (!selectedPlace) {
+    console.error('selectedPlace가 없습니다.');
+    currentScreen = 'placeList';
+    render();
+    return;
+  }
+  
   const app = document.getElementById('app');
   app.innerHTML = `
     <div id="map" class="map-area"></div>
@@ -266,16 +277,23 @@ function renderPlaceDetail() {
     <button class="back-btn abs" id="backMap">←</button>
   `;
   
+  console.log('장소 상세 화면 렌더링 완료');
+  
   // 선택된 장소로 지도 이동
   setTimeout(() => {
     if (map) {
       const position = new kakao.maps.LatLng(selectedPlace.lat, selectedPlace.lng);
       map.setCenter(position);
       map.setLevel(2);
+      console.log('지도 중심 이동 완료:', selectedPlace.name);
     }
-  }, 100);
+  }, 500);
   
-  document.getElementById('backMap').onclick = () => { currentScreen = 'placeList'; render(); };
+  document.getElementById('backMap').onclick = () => { 
+    console.log('뒤로가기 클릭');
+    currentScreen = 'placeList'; 
+    render(); 
+  };
   document.getElementById('reserveBtn').onclick = () => { alert('예약하기 기능 준비중'); };
 }
 
