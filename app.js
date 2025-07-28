@@ -266,6 +266,7 @@ function showPlaceDetail(place) {
   const sheet = document.createElement('div');
   sheet.className = 'place-sheet toss-place-sheet';
   sheet.innerHTML = `
+    <button class="back-btn abs" id="closeSheet">×</button>
     <div class="place-title">${place.name}</div>
     <div class="place-info">운영시간 : ${place.time}</div>
     <div class="place-info">${place.features}</div>
@@ -273,7 +274,6 @@ function showPlaceDetail(place) {
       <button class="like-btn">❤</button>
       <button class="toss-btn-main" id="reserveBtn">예약하기</button>
     </div>
-    <button class="back-btn abs" id="closeSheet">×</button>
   `;
   
   document.body.appendChild(sheet);
