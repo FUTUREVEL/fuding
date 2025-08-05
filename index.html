@@ -5,12 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>푸딩 - 푸드트럭 운영지원 플랫폼</title>
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa63f82a273ffc75f4210eacbf5437dd&libraries=services"></script>
+  <script src="config.js"></script>
+  <script>
+    // config.js에서 불러온 키를 사용하여 카카오맵 스크립트를 동적으로 추가합니다.
+    const kakaoMapScript = document.createElement('script');
+    kakaoMapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${window.config.kakaoMapApiKey}&libraries=services&autoload=false`;
+    kakaoMapScript.onload = () => {
+      kakao.maps.load(() => {
+        // 지도가 필요한 페이지에서 initMap()을 호출할 수 있도록 준비합니다.
+        // 예: renderPlaceList() 내부에서 호출
+      });
+    };
+    document.head.appendChild(kakaoMapScript);
+  </script>
 </head>
 <body>
   <div id="app">
     <!-- SPA 컨테이너: JS로 각 화면이 이 영역에 렌더링됨 -->
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
   <script src="app.js"></script>
 </body>
 </html> 
